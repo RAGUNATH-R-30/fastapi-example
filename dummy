@@ -1,0 +1,33 @@
+# from fastapi import FastAPI
+# from pymongo import MongoClient
+#
+# mongodb_url = "mongodb+srv://ragunath3003:mynameisragunath@cluster0.lmyxz0w.mongodb.net/?retryWrites=true&w=majority"
+# client = MongoClient(mongodb_url)
+# database_names = []
+# app = FastAPI()
+#
+# usernames = {
+#     1: {
+#         "name": "rame",
+#         "age": "18"
+#     }
+# }
+#
+#
+# @app.get("/")
+# def index():
+#     databasenames()
+#     return database_names
+#
+# # @app.get("/databasenames")
+# def databasenames():
+#     for i in client.list_database_names():
+#         database_names.append(i)
+#
+#
+# @app.get("/getname/{username}")
+# def get_name(username: int, dummy):
+#     first_string = str(usernames[username]["name"])
+#
+#     final_string = first_string + dummy
+#     return final_string
