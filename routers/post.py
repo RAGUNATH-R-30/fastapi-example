@@ -1,6 +1,6 @@
-import oauth2
 import schemas
 import models
+import oauth2
 from typing import List, Optional
 from fastapi import Response, status, HTTPException, Depends, APIRouter
 from database import get_db
