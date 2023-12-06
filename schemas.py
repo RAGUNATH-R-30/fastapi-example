@@ -1,4 +1,5 @@
-from pydantic import BaseModel, EmailStr
+from pydantic import BaseModel, EmailStr, Field
+from typing_extensions import Annotated
 from datetime import datetime
 from typing import Optional
 from pydantic import conint
@@ -43,13 +44,12 @@ class PostOut(BaseModel):
 
 class Vote(BaseModel):
     post_id: int
-    dir: conint(le=1)
+    dir: Annotated[int, Field(strict=True, le=1)]
 
 
 class UserCreate(BaseModel):
     email: EmailStr
     password: str
-
 
 
 class UserLogin(BaseModel):
