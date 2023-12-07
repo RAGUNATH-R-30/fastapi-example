@@ -10,6 +10,12 @@ from sqlalchemy import func
 router = APIRouter(prefix="/posts", tags=["posts"])
 
 
+@router.get("/getall", response_model=List[schemas.Post])
+def get_all_posts(db: Session = Depends(get_db)):
+    result = db.query(models.Post).all()
+    return result
+
+
 # @router.get("/", response_model=List[schemas.Post])
 @router.get("/", response_model=List[schemas.PostOut])
 def get_posts(db: Session = Depends(get_db), current_user: int = Depends(oauth2.get_current_user), limit: int = 10,
